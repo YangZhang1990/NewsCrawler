@@ -1,17 +1,16 @@
 import threading
 from Queue import Queue
 from urlSpider import urlSpider
-from domain import *
 from general import *
 
 
 PROJECT_NAME = 'bbc'
 HOMEPAGE = 'http://www.bbc.com/news/world'
 
-DOMAIN_NAME = 'bbc.com'
-QUEUE_FILE = PROJECT_NAME + '/queue.txt'
-CRAWLED_FILE = PROJECT_NAME +'/crawled.txt'
-NUMBER_OF_THREADS = 2
+DOMAIN_NAME = get_domain_name(HOMEPAGE)
+QUEUE_FILE = PROJECT_NAME + '/'+PROJECT_NAME+'_queue.txt'
+#CRAWLED_FILE = PROJECT_NAME +'/crawled.txt'
+NUMBER_OF_THREADS = 6
 
 urlSpider(PROJECT_NAME,HOMEPAGE,DOMAIN_NAME)
 queue= Queue(maxsize=0)
